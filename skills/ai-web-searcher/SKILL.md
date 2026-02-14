@@ -1,6 +1,6 @@
 ---
 name: ai-web-searcher
-description: AI-powered web content extraction tool with multi-threaded concurrent support. Extract structured content from web pages using browser rendering and AI analysis. Use when users need to: (1) Scrape multiple websites concurrently, (2) Extract key information from dynamic JavaScript pages, (3) Filter out ads and irrelevant content, (4) Get structured JSON/Markdown output from web pages, (5) Monitor multiple sources simultaneously.
+description: AI-powered web content extraction tool with multi-threaded concurrent support and smart search capabilities. Extract structured content from web pages using browser rendering and AI analysis. Includes smart search that prioritizes pre-configured AI news sources with keyword matching. Use when users need to: (1) Scrape multiple websites concurrently, (2) Extract key information from dynamic JavaScript pages, (3) Filter out ads and irrelevant content, (4) Get structured JSON/Markdown output from web pages, (5) Monitor multiple sources simultaneously, (6) Search AI news from known sources with relevance scoring.
 ---
 
 # AI Web Searcher
@@ -306,3 +306,82 @@ For advanced configurations and patterns, see:
 - [CONCURRENCY.md](references/CONCURRENCY.md) - Detailed concurrency patterns
 - [SELECTORS.md](references/SELECTORS.md) - CSS selector examples
 - [OUTPUT_FORMATS.md](references/OUTPUT_FORMATS.md) - Custom output templates
+- [SMART_SEARCH.md](references/SMART_SEARCH.md) - Smart search with pre-configured sources
+
+## Smart Search Feature
+
+### Overview
+
+Smart Search prioritizes content from pre-configured AI news sources with intelligent keyword matching and relevance scoring.
+
+### List Sources
+
+```bash
+python3 scripts/smart_search.py --list-sources
+```
+
+Shows 10+ pre-configured AI news sources including:
+- OpenAI News
+- Google AI Blog
+- DeepMind Blog
+- Anthropic News
+- TechCrunch AI
+- The Verge AI
+- MIT Technology Review
+- arXiv CS.AI
+
+### List Categories
+
+```bash
+python3 scripts/smart_search.py --list-categories
+```
+
+Shows 6 search categories:
+- `model_releases` - New model launches
+- `research` - Academic papers and breakthroughs
+- `products` - Product updates and features
+- `industry` - Funding, acquisitions, startups
+- `safety` - AI safety and regulation
+- `applications` - Enterprise and use cases
+
+### Smart Search Examples
+
+**Search by keywords**:
+```bash
+python3 scripts/smart_search.py "GPT model release" --max-results 5
+python3 scripts/smart_search.py "AI safety regulation" --mode browser
+```
+
+**Search by category**:
+```bash
+python3 scripts/smart_search.py --category model_releases
+python3 scripts/smart_search.py --category research --max-results 10
+```
+
+**Combined with extraction options**:
+```bash
+python3 scripts/smart_search.py "machine learning" --mode browser --max-results 10
+```
+
+### How It Works
+
+1. **Source Scoring**: Scores sources based on keyword matches and priority
+2. **Concurrent Extraction**: Extracts from top-scoring sources in parallel
+3. **Relevance Calculation**: Calculates relevance score (0-100%)
+4. **Deduplication**: Removes duplicate results
+5. **Ranking**: Sorts by relevance and source priority
+
+### Advantages
+
+- ✅ **High Relevance**: Double matching (source keywords + user query)
+- ✅ **Categorized**: Fast navigation by topic
+- ✅ **Configurable**: Easy to add new sources
+- ✅ **Priority System**: Important sources prioritized
+
+### Limitations
+
+- ⏳ **Browser Required**: Most news sites need `--mode browser`
+- ⏳ **Source Limited**: Only searches pre-configured sources
+- ⏳ **No Caching**: Extracts fresh content each time
+
+For detailed documentation, see [SMART_SEARCH.md](references/SMART_SEARCH.md).

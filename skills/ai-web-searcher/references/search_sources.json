@@ -1,0 +1,109 @@
+{
+  "ai_news_sources": [
+    {
+      "name": "OpenAI News",
+      "url": "https://openai.com/news",
+      "keywords": ["GPT", "OpenAI", "model", "API", "safety", "research"],
+      "update_frequency": "daily",
+      "priority": 1
+    },
+    {
+      "name": "TechCrunch AI",
+      "url": "https://techcrunch.com/category/artificial-intelligence/",
+      "keywords": ["AI", "machine learning", "neural", "deep learning", "generative"],
+      "update_frequency": "daily",
+      "priority": 2
+    },
+    {
+      "name": "The Verge AI",
+      "url": "https://www.theverge.com/ai-artificial-intelligence",
+      "keywords": ["AI", "artificial intelligence", "LLM", "chatbot", "automation"],
+      "update_frequency": "daily",
+      "priority": 3
+    },
+    {
+      "name": "MIT Technology Review AI",
+      "url": "https://www.technologyreview.com/topic/artificial-intelligence/",
+      "keywords": ["AI research", "MIT", "breakthrough", "innovation"],
+      "update_frequency": "daily",
+      "priority": 2
+    },
+    {
+      "name": "VentureBeat AI",
+      "url": "https://venturebeat.com/category/ai/",
+      "keywords": ["venture", "startup", "funding", "AI company"],
+      "update_frequency": "daily",
+      "priority": 4
+    },
+    {
+      "name": "AI News",
+      "url": "https://www.artificialintelligence-news.com/",
+      "keywords": ["industry", "application", "deployment", "enterprise"],
+      "update_frequency": "daily",
+      "priority": 5
+    },
+    {
+      "name": "Google AI Blog",
+      "url": "https://blog.google/technology/ai/",
+      "keywords": ["Google", "Gemini", "Bard", "DeepMind", "research"],
+      "update_frequency": "weekly",
+      "priority": 1
+    },
+    {
+      "name": "DeepMind Blog",
+      "url": "https://deepmind.google/discover/",
+      "keywords": ["DeepMind", "Alpha", "research", "breakthrough", "science"],
+      "update_frequency": "weekly",
+      "priority": 2
+    },
+    {
+      "name": "Anthropic Blog",
+      "url": "https://www.anthropic.com/news",
+      "keywords": ["Claude", "Constitutional AI", "safety", "research", "Anthropic"],
+      "update_frequency": "weekly",
+      "priority": 2
+    },
+    {
+      "name": "arXiv CS.AI",
+      "url": "https://arxiv.org/list/cs.AI/recent",
+      "keywords": ["paper", "research", "academic", "arXiv", "publication"],
+      "update_frequency": "daily",
+      "priority": 3
+    }
+  ],
+  "search_categories": {
+    "model_releases": {
+      "keywords": ["GPT", "Claude", "Gemini", "Llama", "Mistral", "release", "launch", "model"],
+      "sources": ["openai", "google", "deepmind", "anthropic"]
+    },
+    "research": {
+      "keywords": ["paper", "arXiv", "breakthrough", "research", "study", "experiment"],
+      "sources": ["arxiv", "mit", "deepmind"]
+    },
+    "products": {
+      "keywords": ["product", "feature", "update", "launch", "app", "tool"],
+      "sources": ["openai", "google", "techcrunch", "verge"]
+    },
+    "industry": {
+      "keywords": ["funding", "acquisition", "IPO", "startup", "company", "business"],
+      "sources": ["venturebeat", "techcrunch"]
+    },
+    "safety": {
+      "keywords": ["safety", "alignment", "regulation", "policy", "ethics", "governance"],
+      "sources": ["openai", "anthropic", "deepmind", "mit"]
+    },
+    "applications": {
+      "keywords": ["application", "deployment", "use case", "integration", "enterprise"],
+      "sources": ["ai-news", "techcrunch", "verge"]
+    }
+  },
+  "keyword_mappings": {
+    "gpt": ["GPT", "GPT-4", "GPT-4o", "GPT-4.5"],
+    "claude": ["Claude", "Claude 3", "Claude 4", "Anthropic Claude"],
+    "gemini": ["Gemini", "Google Gemini", "Gemini Pro", "Gemini Ultra"],
+    "llm": ["LLM", "Large Language Model", "language model", "text model"],
+    "generative_ai": ["generative AI", "GenAI", "generative", "text-to-image", "text-to-video"],
+    "agents": ["AI agent", "autonomous agent", "AI assistant", "copilot"],
+    "multimodal": ["multimodal", "multi-modal", "vision", "audio", "video model"]
+  }
+}
