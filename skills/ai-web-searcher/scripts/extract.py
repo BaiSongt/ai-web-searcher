@@ -218,12 +218,20 @@ async def extract_urls(
     # Use ThreadPoolExecutor for concurrent processing
     with ThreadPoolExecutor(max_workers=extractor.concurrency) as executor:
         # Submit all tasks
-        future_to_url = {
-            executor.submit(
+        future_to_url = {}
+        for url_config in urls:
+            if isinstance(url_config, str):
+                url = url_config
+                config = {}
+            else:
+                url = url_config.get('url')
+                config = url_config
+
+            future = executor.submit(
                 asyncio.run,
-                extractor.extract_single_url(url)
-            ): url for url in urls
-        }
+                extractor.extract_single_url(url, config)
+            )
+            future_to_url[future] = url
 
         # Collect results as they complete
         for future in as_completed(future_to_url):
